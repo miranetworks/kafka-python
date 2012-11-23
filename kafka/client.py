@@ -596,7 +596,7 @@ class KafkaClient(object):
         payloads: strings
         """
         messages = tuple([self.create_message(payload) for payload in payloads])
-        self.send_message_set(ProduceRequest(topic, -1, messages))
+        self.send_message_set(ProduceRequest(topic, 0, messages))
 
     def iter_messages(self, topic, partition, offset, size, auto=True):
         """
